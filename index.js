@@ -81,12 +81,30 @@ function SortAllButton() {
   return $button;
 }
 
+const Num_Range = { min: 1, max: 999 };
+
+function genNum() {
+  const randomNum =
+    Math.floor(Math.random() * (Num_Range.max - Num_Range.min + 1)) +
+    Num_Range.min;
+  numbers.push(randomNum);
+  render();
+}
+
+function GenerateButton() {
+  const $button = document.createElement("button");
+  $button.textContent = "Generate Number";
+  $button.addEventListener("click", genNum);
+  return $button;
+}
+
 function render() {
   const $app = document.querySelector("#app");
   $app.innerHTML = "";
   $app.append(NumberForm());
   $app.append(SortButton());
   $app.append(SortAllButton());
+  $app.append(GenerateButton());
   $app.append(NumberBank());
 }
 
