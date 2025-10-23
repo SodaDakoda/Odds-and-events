@@ -98,6 +98,20 @@ function GenerateButton() {
   return $button;
 }
 
+function clearNumbers() {
+  numbers = [];
+  oddNumbers = [];
+  evenNumbers = [];
+  render();
+}
+
+function ClearButton() {
+  const $button = document.createElement("button");
+  $button.textContent = "Clear All";
+  $button.addEventListener("click", clearNumbers);
+  return $button;
+}
+
 function render() {
   const $app = document.querySelector("#app");
   $app.innerHTML = "";
@@ -105,6 +119,7 @@ function render() {
   $app.append(SortButton());
   $app.append(SortAllButton());
   $app.append(GenerateButton());
+  $app.append(ClearButton());
   $app.append(NumberBank());
 }
 
