@@ -1,4 +1,6 @@
 let numbers = []; //number bank
+let oddNumbers = [];
+let evenNumbers = [];
 
 function addNumber(n) {
   numbers.push(n);
@@ -6,7 +8,7 @@ function addNumber(n) {
 }
 
 function NumberForm() {
-  const $form = document.creatElement("form");
+  const $form = document.createElement("form");
   $form.innerHTML = `
       <label>
       
@@ -32,3 +34,12 @@ function NumberBank() {
   $div.textContent = "Numbers: " + numbers.join(", ");
   return $div;
 }
+
+function render() {
+  const $app = document.querySelector("#app");
+  $app.innerHTML = "";
+  $app.append(NumberForm());
+  $app.append(NumberBank());
+}
+
+render();
