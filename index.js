@@ -62,11 +62,31 @@ function SortButton() {
   return $button;
 }
 
+function sortAll() {
+  while (numbers.length > 0) {
+    const n = numbers.shift();
+    if (n % 2 === 0) {
+      evenNumbers.push(n);
+    } else {
+      oddNumbers.push(n);
+    }
+  }
+  render();
+}
+
+function SortAllButton() {
+  const $button = document.createElement("button");
+  $button.textContent = "Sort All";
+  $button.addEventListener("click", sortAll);
+  return $button;
+}
+
 function render() {
   const $app = document.querySelector("#app");
   $app.innerHTML = "";
   $app.append(NumberForm());
   $app.append(SortButton());
+  $app.append(SortAllButton());
   $app.append(NumberBank());
 }
 
