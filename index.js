@@ -1,6 +1,6 @@
 let numbers = []; //number bank
-let oddNumbers = [];
-let evenNumbers = [];
+let oddNumbers = []; //odd numbers
+let evenNumbers = []; //even numbers
 
 function addNumber(n) {
   numbers.push(n);
