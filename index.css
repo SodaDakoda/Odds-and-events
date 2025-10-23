@@ -1,0 +1,156 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #28a745;
+  --danger-color: #dc3545;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --text-color: #343a40;
+  --border-color: #ced4da;
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#app {
+  width: 100%;
+  max-width: 900px;
+  padding: 30px;
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+#app > form {
+  grid-column: 1 / span 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#app input[type="number"] {
+  padding: 10px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 16px;
+  min-width: 150px;
+}
+
+#app button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+
+#app button:nth-of-type(1),
+#app button:nth-of-type(2) {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+#app button:nth-of-type(3) {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+#app button:nth-of-type(4) {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+#app form button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+#app button:hover {
+  filter: brightness(1.1);
+}
+
+#app button:active {
+  transform: scale(0.98);
+}
+
+#app > div:last-child {
+  grid-column: 1 / span 4;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  background-color: #f1f3f5;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+#app > div:last-child p {
+  padding: 15px;
+  border-radius: 4px;
+  margin: 0;
+}
+
+#app > div:last-child p:nth-of-type(1) {
+  background-color: #e9ecef;
+}
+
+#app > div:last-child p:nth-of-type(2) {
+  background-color: #fff3cd;
+}
+
+#app > div:last-child p:nth-of-type(3) {
+  background-color: #d1ecf1;
+}
+
+#app select {
+  padding: 8px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 5px;
+}
+
+#app > div:last-child select:nth-of-type(1),
+#app > div:last-child select:nth-of-type(2),
+#app > div:last-child select:nth-of-type(3) {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  #app {
+    padding: 15px;
+    grid-template-columns: 1fr;
+  }
+
+  #app > form {
+    grid-column: 1;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #app > div:last-child {
+    grid-template-columns: 1fr;
+  }
+
+  #app > div:last-child p,
+  #app > div:last-child select {
+    grid-column: 1;
+  }
+}
