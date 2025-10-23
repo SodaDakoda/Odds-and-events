@@ -31,14 +31,42 @@ function NumberForm() {
 
 function NumberBank() {
   const $div = document.createElement("div");
-  $div.textContent = "Numbers: " + numbers.join(", ");
+  $div.innerHTML = `
+    <p>Number Bank: ${numbers.join(", ")}</p>
+    <p>Odd Numbers: ${oddNumbers.join(", ")}</p>
+    <p>Even Numbers: ${evenNumbers.join(", ")}</p>
+  `;
   return $div;
+}
+
+function sortFirst() {
+  if (numbers.length === 0) return;
+
+  const first = numbers.shift();
+
+  if (first % 2 === 0) {
+    evenNumbers.push(first);
+  } else {
+    oddNumbers.push(first);
+  }
+
+  render();
+}
+
+function SortButton() {
+  const $button = document.createElement("button");
+  $button.textContent = "Sort 1";
+
+  $button.addEventListener("click", sortFirst);
+
+  return $button;
 }
 
 function render() {
   const $app = document.querySelector("#app");
   $app.innerHTML = "";
   $app.append(NumberForm());
+  $app.append(SortButton());
   $app.append(NumberBank());
 }
 
